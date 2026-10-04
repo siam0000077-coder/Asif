@@ -29,12 +29,12 @@ module.exports.languages = {
   }
 };
 
-const helpImages = [
-  "...",
-  "...",
-  "...",
-  "...."
-];
+const backgrounds = [
+    "https://any2url.com/item/7OaCVTGj4o.jpeg",
+    "https://any2url.com/item/7Oa82dpK5l.jpeg",
+    "https://any2url.com/item/7OaCVTGj4o.jpeg",
+    "https://any2url.com/item/7Oa82dpK5l.jpeg"
+  ];
 
 function getPrefix(threadID) {
   const threadSetting =

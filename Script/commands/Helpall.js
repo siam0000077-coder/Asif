@@ -4,10 +4,10 @@ const request = require("request");
 module.exports.config = {
   name: "helpall",
   aliases: ["allcmd", "allcommands"],
-  version: "2.0.0",
+  version: "1.0.1",
   hasPermssion: 0,
-  credits: "হৃদয় হাসান শান্ত",
-  description: "Displays all available commands in one stylish page",
+  credits: "SHAHADAT SAHU",
+  description: "Displays all available commands in one page",
   commandCategory: "system",
   usages: "[No args]",
   cooldowns: 5
@@ -25,49 +25,38 @@ module.exports.run = async function ({ api, event }) {
     }
   }
 
-  // Sort commands alphabetically
-  allCommands.sort((a, b) => a.localeCompare(b));
+  allCommands.sort();
 
   const botName =
     global.config?.BOTNAME ||
     global.config?.botName ||
-    "HRIDOY BOT";
+    "MESSENGER CHAT BOT";
 
-  const finalText = `
-╭━━━〔 💠 𝐀𝐒𝐈𝐅 𝐁𝐎𝐓 💠 〕━━━╮
-┃
-┃  👑 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓
-┃  ─────────────────
-┃
-${allCommands.map((cmd, index) =>
-    `┃  ${String(index + 1).padStart(2, "0")} ➜ ${cmd}`
-  ).join("\n")}
-┃
-┣━━━━━━━━━━━━━━━━━━━━
-┃  🤖 𝐁𝐎𝐓 : ${botName}
-┃  👑 𝐎𝐖𝐍𝐄𝐑 : Asif Xhowdary
-┃  📦 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒 : ${allCommands.length}
-┃  ⚡ 𝐕𝐄𝐑𝐒𝐈𝐎𝐍 : 𝐕𝟐. 𝟎
-┃
-╰━━━〔 💫 𝐀𝐒𝐈𝐅 𝐗𝐇𝐎𝐖𝐃𝐀𝐑𝐘 💫 〕━━━╯
-`;
+  const finalText = `╔═❖ 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 ❖═╗
+${allCommands.map(cmd => `║ ➔ ${cmd}`).join("\n")}
+╠══🔰 𝐁𝐎𝐓 𝐈𝐍𝐅𝐎 🔰══╣
+║ 🤖 𝐁𝐨𝐭: ${botName}
+║ 👑 𝐎𝐰𝐧𝐞𝐫:
+║ Asif Xhowdary
+║ 📦 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬: ${allCommands.length}
+╚═══════════════╝`;
 
-  // Background image
-  const selectedBg = "https://i.imgur.com/any2url.com/item/7P8gRNG9TV.jpeg";
+  const backgrounds = [
+    "https://i.imgur.com/cwd64Av.jpeg",
+    "https://i.imgur.com/hPtliXo.jpeg",
+    "https://i.imgur.com/L7txp4M.jpeg",
+    "https://i.imgur.com/5dG8PS5.jpeg"
+  ];
 
-  const cacheDir = __dirname + "/cache";
+  const selectedBg =
+    backgrounds[Math.floor(Math.random() * backgrounds.length)];
 
-  // Create cache folder if missing
-  if (!fs.existsSync(cacheDir)) {
-    fs.mkdirSync(cacheDir, { recursive: true });
-  }
-
-  const imgPath = cacheDir + "/helpallbg.jpg";
+  const imgPath = __dirname + "/cache/helpallbg.jpg";
 
   const callback = () => {
     api.sendMessage(
       {
-        body: finalText.trim(),
+        body: finalText,
         attachment: fs.createReadStream(imgPath)
       },
       threadID,
@@ -80,19 +69,7 @@ ${allCommands.map((cmd, index) =>
     );
   };
 
-  request
-    .get(encodeURI(selectedBg))
-    .on("error", (err) => {
-      console.error("❌ HelpAll Image Error:", err);
-
-      // Send text even if image download fails
-      api.sendMessage(
-        finalText.trim(),
-        threadID,
-        null,
-        messageID
-      );
-    })
+  request(encodeURI(selectedBg))
     .pipe(fs.createWriteStream(imgPath))
     .on("close", callback);
 };

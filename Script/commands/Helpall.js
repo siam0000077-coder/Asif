@@ -42,10 +42,10 @@ ${allCommands.map(cmd => `║ ➔ ${cmd}`).join("\n")}
 ╚═══════════════╝`;
 
   const backgrounds = [
-    "...",
-    "....",
-    "....",
-    "...."
+    "https://any2url.com/item/7OaCVTGj4o.jpeg",
+    "https://any2url.com/item/7Oa82dpK5l.jpeg",
+    "https://any2url.com/item/7OaCVTGj4o.jpeg",
+    "https://any2url.com/item/7Oa82dpK5l.jpeg"
   ];
 
   const selectedBg =

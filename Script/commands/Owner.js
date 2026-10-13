@@ -29,10 +29,10 @@ module.exports.run = async function ({ api, event }) {
 🔗 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗟𝗜𝗡𝗞𝗦
 
 📘 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸:
-https://www.facebook.com/share/1BomgGR8F6/
+https://www.facebook.com/profile.php?id=61595526863059
 
 💬 𝗠𝗲𝘀𝘀𝗲𝗻𝗴𝗲𝗿:
-https://www.facebook.com/share/1BomgGR8F6/
+https://www.facebook.com/profile.php?id=61595526863059
 
 📞 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽:
 wa.me/01623415518

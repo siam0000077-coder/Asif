@@ -71,9 +71,9 @@ module.exports.run = async function ({
 │
 ├─ 👑 𝗡𝗮𝗺𝗲 : Asif Xhowdary
 ├─ 📲 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸 :
-│ https://www.facebook.com/share/1BomgGR8F6/
+│ https://www.facebook.com/profile.php?id=61595526863059
 ├─ 💌 𝗠𝗲𝘀𝘀𝗲𝗻𝗴𝗲𝗿 :
-│ https://www.facebook.com/share/1BomgGR8F6/
+│ https://www.facebook.com/profile.php?id=61595526863059
 ├─ 📞 𝗪𝗵𝗮𝘁𝘀𝗀𝗩𝗵𝗔𝗽𝗽 :
 │ wa.me/+8801623415518
 ╰───────⭓
